@@ -1,0 +1,5 @@
+{
+	"login_token": "xxxxxx,xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+	"domain": "xxxxxx.com",
+	"record_name": "my-dynamic-ip"
+}
