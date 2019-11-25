@@ -4,6 +4,7 @@
 import os
 import json
 import socket
+import requests
 from dnspod import apicn
 from pprint import pprint
 
@@ -17,10 +18,8 @@ login_token = config['login_token']
 
 
 def getip():
-    sock = socket.create_connection(('ns1.dnspod.net', 6666))
-    ip = sock.recv(16)
-    sock.close()
-    return ip.decode()
+    resp = requests.get('https://api.ipify.org?format=json')
+    return resp.json()['ip']
 
 
 def main():
