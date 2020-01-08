@@ -2,4 +2,14 @@
 	"login_token": "xxxxxx,xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
 	"domain": "xxxxxx.com",
 	"record_name": "my-dynamic-ip"
+	"domain_list": [
+		{
+			"domain": "xxxxxx.com",
+			"record_name": "record-a"
+		},
+		{
+			"domain": "yyyyyy.com",
+			"record_name": "record-b"
+		}
+	]
 }

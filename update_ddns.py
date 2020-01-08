@@ -12,8 +12,6 @@ from pprint import pprint
 config_file = os.path.join(os.path.dirname(__file__), 'config.json')
 config = json.load(open(config_file))
 
-domain = config['domain']
-record_name = config['record_name']
 login_token = config['login_token']
 
 
@@ -22,9 +20,13 @@ def getip():
     return resp.json()['ip']
 
 
-def main():
+def update_record(record):
     # please refer to:
     # https://support.dnspod.cn/Kb/showarticle/tsid/227/
+
+    record_name = record['record_name']
+    domain = record['domain']
+
     print("DomainId")
     api = apicn.DomainId(domain=domain, login_token=login_token)
     domain_info = api()
@@ -72,6 +74,11 @@ def main():
         record = api().get("record", {})
         record_id = record.get("id")
         print("Record id", record_id)
+
+def main():
+    domain_list = config['domain_list']
+    for record in domain_list:
+        update_record(record)
 
 if __name__ == '__main__':
     main()
